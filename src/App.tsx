@@ -1,4 +1,4 @@
-import Editor from './Editor'
+import Editor from './feaures/post/Editor'
 function App() {
   return (
     <>
