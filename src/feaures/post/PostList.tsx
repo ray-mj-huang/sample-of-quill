@@ -11,7 +11,7 @@ const PostList = () => {
 
   useEffect(() => {
     dispatch(clearViewingPost());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div

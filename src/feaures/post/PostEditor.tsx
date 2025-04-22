@@ -16,7 +16,7 @@ function PostEditor() {
     if (!editingPost?.id) {
       dispatch(startCreating())
     }
-  }, [])
+  }, [dispatch])
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(updateEditingTitle(e.target.value)) 

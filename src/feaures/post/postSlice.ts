@@ -41,6 +41,15 @@ const postSlice = createSlice({
       }
       state.isCreating = true
     },
+    startEditing: (state, action: PayloadAction<string | undefined>) => {
+      const post = state.posts.find(p => p.id === action.payload)
+      state.editingPost = post ??
+        {
+          id: action.payload,
+          title: '',
+          content: ''
+        }
+    },
     updateEditingTitle: (state, action: PayloadAction<Post['title']>) => {
       if (state.editingPost) {
         state.editingPost.title = action.payload
@@ -50,15 +59,6 @@ const postSlice = createSlice({
       if (state.editingPost) {
         state.editingPost.content = action.payload
       }
-    },
-    startEditing: (state, action: PayloadAction<string | undefined>) => {
-      const post = state.posts.find(p => p.id === action.payload)
-      state.editingPost = post ??
-        {
-          id: action.payload,
-          title: '',
-          content: ''
-        }
     },
     savePost: (state) => {
       if (state.editingPost) {
